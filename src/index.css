@@ -3,5 +3,6 @@ body {
   padding: 0;
   background: #edf6fb;
   font-family: "Roboto";
+  min-width: 320px;
 }
 /*# sourceMappingURL=index.css.map */
