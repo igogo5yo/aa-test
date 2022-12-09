@@ -40,8 +40,8 @@
     padding: 50px @offset 75px;
 
     .name {
-      font-size: 32px;
-      margin-bottom: 40px;
+      font-size: @font-size-xl;
+      margin-bottom: @vertical-margin;
     }
 
     .info {
@@ -66,11 +66,11 @@
       }
 
       .degree {
-        font-size: 82px;
+        font-size: @font-size-2xl
       }
 
       .weather-condition {
-        font-size: 32px;
+        font-size: @font-size-lg;
 
         @media (max-width: 768px) {
           text-align: center;
@@ -80,8 +80,7 @@
   }
 
   .name {
-    font-size: 24px;
-    //margin-bottom: 24px;
+    font-size: @font-size-md;
   }
 
   .info {
@@ -100,12 +99,12 @@
 
   .weather {
     .degree {
-      font-size: 36px;
-      font-weight: 700;
+      font-size: @font-size-xl;
+      font-weight: @bold;
     }
 
     .weather-condition {
-      font-size: 24px;
+      font-size: @font-size-md;
     }
   }
 }
