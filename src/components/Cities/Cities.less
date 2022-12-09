@@ -1,0 +1,40 @@
+@import "../../variables";
+
+
+.city-root {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+
+  width: calc(100% - @offset-xl);
+  max-width: 870px;
+  padding-left: @offset;
+
+  @media (max-width: 480px) {
+    width: calc(100% - @offset-lg);
+  }
+}
+
+.weather-container {
+  box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+  border: @gap solid @border-color;
+  background: @border-color;
+  border-radius: @gap * 2;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+
+  .error {
+    width: 100%;
+    text-align: center;
+    color: @error-color;
+    font-weight: 700;
+  }
+
+  .loading {
+    width: 100%;
+    text-align: center;
+  }
+}

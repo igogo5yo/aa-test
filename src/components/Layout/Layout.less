@@ -1,0 +1,38 @@
+@import "../../variables";
+
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  margin-top: -@offset;
+  width: calc(100% + @offset);
+  margin-left: -@offset;
+  padding: 60px 0;
+}
+
+.item {
+  padding-left: @offset;
+  padding-top: @offset;
+}
+
+.navigation {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: calc(100% - @offset-lg);
+  margin-left: -@offset-lg;
+
+  .city-link {
+    font-size: 36px;
+    text-transform: uppercase;
+    text-decoration: none;
+    outline: none;
+    color: @primary-color;
+    padding-left: @offset-lg;
+
+    &.active {
+      font-weight: 700;
+      color: @active-color;
+    }
+  }
+}
