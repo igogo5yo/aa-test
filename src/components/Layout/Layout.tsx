@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import "./Layout.css";
 
-const getClassName = ({ isActive }: { isActive: boolean }) => classNames('item city-link', {
+const getClassName = ({ isActive }: { isActive: boolean }) => classNames('city-link', {
   'active': isActive
 });
 

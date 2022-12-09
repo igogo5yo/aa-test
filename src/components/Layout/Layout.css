@@ -14,8 +14,9 @@
 .navigation {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: space-around;
   width: calc(100% - 64px);
+  max-width: 870px;
   margin-left: -64px;
 }
 .navigation .city-link {
@@ -23,8 +24,12 @@
   text-transform: uppercase;
   text-decoration: none;
   outline: none;
+  margin-left: 64px;
+  margin-top: 16px;
   color: #333338;
-  padding-left: 64px;
+}
+.navigation .city-link:hover {
+  color: #5fb0e8;
 }
 .navigation .city-link.active {
   font-weight: 700;
