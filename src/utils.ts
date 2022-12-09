@@ -1,5 +1,5 @@
 import moment from "moment";
-import { API_KEY, cities } from "./constants";
+import { API_KEYS, cities } from "./constants";
 import { TWeatherData, TCities, ICloudData, TWeatherCondition } from "./types";
 
 const createUrl = (cityName: TCities) => {
@@ -68,6 +68,26 @@ const normalizeData = (data: ICloudData): TWeatherData => {
 
   return res;
 };
+
+const tryFetch = async (url: string, tries = 0): Promise<ICloudData> => {
+  const res = await fetch(url, {
+    headers: {
+      'Authorization': API_KEYS[tries]
+    }
+  });
+
+  const data = await res.json();
+  if (data.errors) {
+    if (tries >= API_KEYS.length - 1) {
+      throw new Error(data.errors.key);
+    }
+
+    return await tryFetch(url, tries+1);
+  }
+
+  return data;
+}
+
 export const getWeather = async (cityName: TCities): Promise<TWeatherData> => {
   const url = createUrl(cityName);
   console.log('CALL:', url);
@@ -79,16 +99,7 @@ export const getWeather = async (cityName: TCities): Promise<TWeatherData> => {
     return JSON.parse(cached);
   }
 
-  const res = await fetch(url, {
-    headers: {
-      'Authorization': API_KEY
-    }
-  });
-
-  const data = await res.json();
-  if (data.errors) {
-    throw new Error(data.errors.key);
-  }
+  const data = await tryFetch(url);
 
   const normalized = normalizeData(data);
   localStorage.setItem(url, JSON.stringify(normalized));
